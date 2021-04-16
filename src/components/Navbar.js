@@ -42,6 +42,10 @@ function Navbar(props) {
 
 const StyledDiv = styled(motion.div)`
   background: var(--nav);
+  position: sticky;
+  z-index: 3;
+  left: 0;
+  top: 0;
   padding: 2rem 12rem;
   min-height: 10vh;
   display: flex;
@@ -83,7 +87,7 @@ const StyledDiv = styled(motion.div)`
     }
   }
   @media (max-width: 800px) {
-    padding: 2rem 8rem;
+    padding: 2rem 4rem;
     h2 {
       font-size: 2rem;
     }
@@ -96,7 +100,7 @@ const StyledDiv = styled(motion.div)`
     }
   }
   @media (max-width: 600px) {
-    padding: 1.5rem 6rem;
+    padding: 1.5rem 2rem;
     h2 {
       font-size: 1.8rem;
     }

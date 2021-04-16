@@ -3,12 +3,7 @@ import GlobalStyle from "./components/GlobalStyle";
 import { createContext, useState } from "react";
 
 // routing
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 
 //Animation
 import { AnimatePresence } from "framer-motion";
@@ -29,15 +24,15 @@ function App() {
     email: "",
     photoURL: "",
   });
-
+  const location = useLocation();
   return (
     <div className="App">
       <UserContext.Provider value={{ user, setUser }}>
-        <Router>
-          <GlobalStyle></GlobalStyle>
+        <GlobalStyle></GlobalStyle>
 
-          <Navbar></Navbar>
-          <Switch>
+        <Navbar></Navbar>
+        <AnimatePresence exitBeforeEnter>
+          <Switch location={location} key={location.pathname}>
             <Route exact path="/">
               <Home></Home>
             </Route>
@@ -48,7 +43,7 @@ function App() {
               <Login></Login>
             </Route>
           </Switch>
-        </Router>
+        </AnimatePresence>
       </UserContext.Provider>
     </div>
   );

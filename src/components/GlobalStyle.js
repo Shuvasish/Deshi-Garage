@@ -13,6 +13,7 @@ html{
 body{
     background:var(--secondary) ;
     color: white;
+    overflow-x: hidden;
     /* font-size:1.6rem; */
 }
 p{
@@ -40,6 +41,9 @@ h5{
 }
 h6{
     font-size:1.6rem;
+}
+ul{
+    margin-bottom: 0rem;
 }
 `;
 
