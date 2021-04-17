@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../App";
 import styled from "styled-components";
 //animation
@@ -7,9 +7,39 @@ import { pageAnimation, slider, fade, sliderContainer } from "../animation";
 
 //scroll top
 import ScrollTop from "../components/ScrollTop";
+import LeftSidebar from "../components/DashboardComponents/LeftSidebar";
+import RightSide from "../components/DashboardComponents/RightSide";
+
+import { StyledSection } from "../style";
 
 function Dashboard(props) {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
+
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [bookingList, setBookingList] = useState([]);
+
+  const email = user.email;
+  console.log(email);
+  useEffect(() => {
+    fetch(`https://peaceful-stream-74378.herokuapp.com/isAdmin?email=${email}`)
+      .then((res) => res.json())
+      .then((data) => setIsAdmin(data))
+      .catch((err) => console.error(err));
+  }, [user.email]);
+
+  useEffect(() => {
+    fetch("https://peaceful-stream-74378.herokuapp.com/orders", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setBookingList(data));
+  }, [email]);
 
   return (
     <StyledDashboard
@@ -25,21 +55,35 @@ function Dashboard(props) {
         <Frame3 variants={slider}></Frame3>
         <Frame4 variants={slider}></Frame4>
       </motion.div>
-      <motion.h1 variants={fade}> This is a dash board</motion.h1>
+
       <ScrollTop />
+      <StyledPageContainer variants={fade}>
+        <div className="row">
+          <LeftSidebar isAdmin={isAdmin}></LeftSidebar>
+          <RightSide
+            bookingList={bookingList}
+            setBookingList={setBookingList}
+            isAdmin={isAdmin}
+          ></RightSide>
+        </div>
+      </StyledPageContainer>
     </StyledDashboard>
   );
 }
 
-const StyledDashboard = styled(motion.div)`
-  padding: 6rem 12rem;
+const StyledDashboard = styled(StyledSection)`
+  /* padding: 0rem 0rem; */
+  padding-top: 5rem;
+  padding-bottom: 0rem;
   min-height: 91vh;
-  background: var(--secondary);
+
   color: var(--text-primary);
   h1 {
     color: var(--text-primary);
   }
 `;
+
+const StyledPageContainer = styled(motion.div)``;
 
 //FRAME ANIMATION
 const Frame1 = styled(motion.div)`

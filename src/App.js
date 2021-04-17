@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import PrivateRoute from "./components/Login/PrivateRoute";
+import RightSide from "./components/DashboardComponents/RightSide";
 
 // CONTEXT SETUP
 export const UserContext = createContext();
@@ -41,6 +42,9 @@ function App() {
             </PrivateRoute>
             <Route path="/login">
               <Login></Login>
+            </Route>
+            <Route path="/test">
+              <RightSide></RightSide>
             </Route>
           </Switch>
         </AnimatePresence>

@@ -57,6 +57,9 @@ const StyledServices = styled(StyledSection)`
           width: 100%;
           height: 200px;
           object-fit: cover;
+          &:hover {
+            animation: imgAnim 3s;
+          }
         }
       }
       p {
@@ -78,6 +81,17 @@ const StyledServices = styled(StyledSection)`
           background: var(--primary);
         }
       }
+    }
+  }
+  @keyframes imgAnim {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
     }
   }
 `;
