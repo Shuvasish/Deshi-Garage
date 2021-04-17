@@ -17,6 +17,8 @@ function Dashboard(props) {
 
   const [isAdmin, setIsAdmin] = useState(false);
   const [bookingList, setBookingList] = useState([]);
+  const [services, setServices] = useState([]);
+  const [track, setTrack] = useState(false);
 
   const email = user.email;
   console.log(email);
@@ -41,6 +43,13 @@ function Dashboard(props) {
       .then((data) => setBookingList(data));
   }, [email]);
 
+  useEffect(() => {
+    fetch("https://peaceful-stream-74378.herokuapp.com/services")
+      .then((res) => res.json())
+      .then((data) => setServices(data));
+  }, [track]);
+  console.log(services);
+
   return (
     <StyledDashboard
       variants={pageAnimation}
@@ -57,6 +66,7 @@ function Dashboard(props) {
       </motion.div>
 
       <ScrollTop />
+
       <StyledPageContainer variants={fade}>
         <div className="row">
           <LeftSidebar isAdmin={isAdmin}></LeftSidebar>
@@ -64,6 +74,9 @@ function Dashboard(props) {
             bookingList={bookingList}
             setBookingList={setBookingList}
             isAdmin={isAdmin}
+            setTrack={setTrack}
+            track={track}
+            services={services}
           ></RightSide>
         </div>
       </StyledPageContainer>

@@ -5,10 +5,11 @@ import star2 from "../icon/star2.svg";
 function ReviewCard({ review }) {
   const { details, email, img, name, ratting } = review;
   //   console.log(typeof ratting);
-  const rate = new Array(ratting);
+  const numRatting = Number(ratting);
+  const rate = new Array(numRatting);
   rate.fill(1);
 
-  const minus = 5 - ratting;
+  const minus = 5 - numRatting;
   //   console.log(minus);
   const minusRate = new Array(minus);
   minusRate.fill(1);
