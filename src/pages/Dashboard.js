@@ -48,7 +48,7 @@ function Dashboard(props) {
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, [track]);
-  console.log(services);
+  // console.log(services);
 
   return (
     <StyledDashboard

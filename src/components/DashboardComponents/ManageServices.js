@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ServiceCard from "./ServiceCard";
 
 function ManageServices({ setTrack, track, services }) {
-  console.log(services);
+  //   console.log(services);
   return (
     <StyledManageServices>
       <table className="table table-striped table-dark">
