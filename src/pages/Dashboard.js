@@ -20,6 +20,27 @@ function Dashboard(props) {
   const [services, setServices] = useState([]);
   const [track, setTrack] = useState(false);
 
+  const [adminClick, setAdminClick] = useState({
+    order: true,
+    service: false,
+    addAdmin: false,
+    manage: false,
+  });
+  const [activeIndicator, setActiveIndicator] = useState({
+    order: "active",
+    service: "",
+    addAdmin: "",
+    manage: "",
+  });
+
+  const [activeIndicatorUser, setActiveIndicatorUser] = useState({
+    booking: "active",
+    review: "",
+  });
+  const [userClick, setUserClick] = useState({
+    booking: true,
+    review: false,
+  });
   const email = user.email;
   console.log(email);
   useEffect(() => {
@@ -69,7 +90,17 @@ function Dashboard(props) {
 
       <StyledPageContainer variants={fade}>
         <div className="row">
-          <LeftSidebar isAdmin={isAdmin}></LeftSidebar>
+          <LeftSidebar
+            isAdmin={isAdmin}
+            setAdminClick={setAdminClick}
+            adminClick={adminClick}
+            setUserClick={setUserClick}
+            userClick={userClick}
+            activeIndicator={activeIndicator}
+            setActiveIndicator={setActiveIndicator}
+            activeIndicatorUser={activeIndicatorUser}
+            setActiveIndicatorUser={setActiveIndicatorUser}
+          ></LeftSidebar>
           <RightSide
             bookingList={bookingList}
             setBookingList={setBookingList}
@@ -77,6 +108,10 @@ function Dashboard(props) {
             setTrack={setTrack}
             track={track}
             services={services}
+            setAdminClick={setAdminClick}
+            adminClick={adminClick}
+            setUserClick={setUserClick}
+            userClick={userClick}
           ></RightSide>
         </div>
       </StyledPageContainer>

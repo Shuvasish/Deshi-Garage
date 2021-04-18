@@ -1,23 +1,37 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
 
-function LeftSidebar({ isAdmin }) {
+import styled from "styled-components";
+import AdminLeft from "./AdminLeft";
+import UserLeft from "./UserLeft";
+
+function LeftSidebar({
+  isAdmin,
+  setAdminClick,
+  adminClick,
+  setUserClick,
+  userClick,
+  activeIndicator,
+  setActiveIndicator,
+  activeIndicatorUser,
+  setActiveIndicatorUser,
+}) {
   return (
     <StyledLeftSidebar className="col-md-3">
       <ul>
         {isAdmin ? (
-          <>
-            <li>Order List</li>
-            <li>Add Service</li>
-            <li>Add Admin</li>
-            <li>Manage Services</li>
-          </>
+          <AdminLeft
+            setAdminClick={setAdminClick}
+            adminClick={adminClick}
+            activeIndicator={activeIndicator}
+            setActiveIndicator={setActiveIndicator}
+          ></AdminLeft>
         ) : (
-          <>
-            <li>Booking List</li>
-            <li>Add Review</li>
-          </>
+          <UserLeft
+            setUserClick={setUserClick}
+            userClick={userClick}
+            activeIndicatorUser={activeIndicatorUser}
+            setActiveIndicatorUser={setActiveIndicatorUser}
+          ></UserLeft>
         )}
       </ul>
     </StyledLeftSidebar>
@@ -35,9 +49,12 @@ const StyledLeftSidebar = styled.div`
       font-size: 2rem;
       transition: all 0.3s;
       &:hover {
-        color: #888888;
+        color: var(--primary);
         cursor: pointer;
       }
+    }
+    .active {
+      color: var(--primary);
     }
   }
 `;

@@ -6,6 +6,8 @@ import BookingList from "./BookingList";
 import OrderList from "./OrderList";
 import AddService from "./AddService";
 import ManageServices from "./ManageServices";
+import AdminRight from "./AdminRight";
+import UserRight from "./UserRight";
 
 const RightSide = ({
   bookingList,
@@ -14,33 +16,33 @@ const RightSide = ({
   setTrack,
   track,
   services,
+  setAdminClick,
+  adminClick,
+  setUserClick,
+  userClick,
 }) => {
   return (
     <StyledRightSidebar className="col-md-8 offset-md-1">
       {/* SHOW ORDERS  */}
-      {/* {isAdmin ? (
-        <OrderList
+      {isAdmin ? (
+        <AdminRight
           bookingList={bookingList}
           setBookingList={setBookingList}
-        ></OrderList>
+          isAdmin={isAdmin}
+          setTrack={setTrack}
+          track={track}
+          services={services}
+          setAdminClick={setAdminClick}
+          adminClick={adminClick}
+        ></AdminRight>
       ) : (
-        <BookingList bookingList={bookingList} />
-      )} */}
-
-      {/* ADD REVIEW */}
-      {/* <AddReview></AddReview> */}
-
-      {/* ADD ADMIN */}
-      {/* <AddAdmin></AddAdmin> */}
-
-      {/* ADD SERVICES */}
-      {/* <AddService></AddService> */}
-
-      <ManageServices
-        setTrack={setTrack}
-        track={track}
-        services={services}
-      ></ManageServices>
+        <UserRight
+          bookingList={bookingList}
+          isAdmin={isAdmin}
+          setUserClick={setUserClick}
+          userClick={userClick}
+        ></UserRight>
+      )}
     </StyledRightSidebar>
   );
 };
