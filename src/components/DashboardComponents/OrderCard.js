@@ -47,9 +47,7 @@ function OrderCard({ booking, serial, setBookingList }) {
       <td className={statusClass}>{status}</td>
       <td>
         <select id="cars" onChange={handleChange}>
-          <option value="none" selected>
-            Change
-          </option>
+          <option value="none">Change</option>
           <option value="pending">Pending</option>
           <option value="ongoing">Ongoing</option>
           <option value="done">Done</option>
