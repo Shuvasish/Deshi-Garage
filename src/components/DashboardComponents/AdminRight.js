@@ -16,12 +16,14 @@ function AdminRight({
   adminClick,
   setUserClick,
   userClick,
+  setTrackStatus,
+  trackStatus,
 }) {
   //   console.log(adminClick);
   const { order, service, addAdmin, manage } = adminClick;
   //   console.log(order, service, addAdmin, manage);
-  console.log(bookingList);
-  console.log(setBookingList);
+  // console.log(bookingList);
+  // console.log(setBookingList);
   return (
     <div>
       {/* ADD SERVICES */}
@@ -29,6 +31,8 @@ function AdminRight({
         <AdminBookingList
           bookingList={bookingList}
           setBookingList={setBookingList}
+          setTrackStatus={setTrackStatus}
+          trackStatus={trackStatus}
         ></AdminBookingList>
       ) : (
         ""

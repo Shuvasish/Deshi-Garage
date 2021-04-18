@@ -15,6 +15,8 @@ const RightSide = ({
   adminClick,
   setUserClick,
   userClick,
+  setTrackStatus,
+  trackStatus,
 }) => {
   return (
     <StyledRightSidebar className="col-md-8 offset-md-1">
@@ -29,6 +31,8 @@ const RightSide = ({
           services={services}
           setAdminClick={setAdminClick}
           adminClick={adminClick}
+          setTrackStatus={setTrackStatus}
+          trackStatus={trackStatus}
         ></AdminRight>
       ) : (
         <UserRight

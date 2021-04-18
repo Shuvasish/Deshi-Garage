@@ -19,6 +19,7 @@ function Dashboard(props) {
   const [bookingList, setBookingList] = useState([]);
   const [services, setServices] = useState([]);
   const [track, setTrack] = useState(false);
+  const [trackStatus, setTrackStatus] = useState(false);
 
   const [adminClick, setAdminClick] = useState({
     order: true,
@@ -42,13 +43,13 @@ function Dashboard(props) {
     review: false,
   });
   const email = user.email;
-  console.log(email);
+  // console.log(email);
   useEffect(() => {
     fetch(`https://peaceful-stream-74378.herokuapp.com/isAdmin?email=${email}`)
       .then((res) => res.json())
       .then((data) => setIsAdmin(data))
       .catch((err) => console.error(err));
-  }, [user.email]);
+  }, [email]);
 
   useEffect(() => {
     fetch("https://peaceful-stream-74378.herokuapp.com/orders", {
@@ -62,7 +63,7 @@ function Dashboard(props) {
     })
       .then((res) => res.json())
       .then((data) => setBookingList(data));
-  }, [email]);
+  }, [email, trackStatus]);
 
   useEffect(() => {
     fetch("https://peaceful-stream-74378.herokuapp.com/services")
@@ -112,6 +113,8 @@ function Dashboard(props) {
             adminClick={adminClick}
             setUserClick={setUserClick}
             userClick={userClick}
+            setTrackStatus={setTrackStatus}
+            trackStatus={trackStatus}
           ></RightSide>
         </div>
       </StyledPageContainer>

@@ -2,8 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import AdminBookingCard from "./AdminBookingCard";
 
-function AdminBookingList({ bookingList, setBookingList }) {
-  console.log("from new", bookingList);
+function AdminBookingList({
+  bookingList,
+  setBookingList,
+  setTrackStatus,
+  trackStatus,
+}) {
+  //   console.log("from new", bookingList);
   return (
     <StyledAdminBookingList>
       <table className="table table-striped table-dark">
@@ -24,6 +29,8 @@ function AdminBookingList({ bookingList, setBookingList }) {
               booking={booking}
               setBookingList={setBookingList}
               key={booking._id}
+              setTrackStatus={setTrackStatus}
+              trackStatus={trackStatus}
               serial={i}
             ></AdminBookingCard>
           ))}
