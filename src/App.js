@@ -15,6 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import PrivateRoute from "./components/Login/PrivateRoute";
 import RightSide from "./components/DashboardComponents/RightSide";
+import Booking from "./pages/Booking";
 
 // CONTEXT SETUP
 export const UserContext = createContext();
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
+            </PrivateRoute>
+            <PrivateRoute path="/booking/:id">
+              <Booking></Booking>
             </PrivateRoute>
             <Route path="/login">
               <Login></Login>

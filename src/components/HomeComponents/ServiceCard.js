@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function ServiceCard({ service }) {
   const { Title, Price, image, Description, _id } = service;
@@ -13,7 +14,9 @@ function ServiceCard({ service }) {
         </Hide>
       </div>
       <p>{Description}</p>
-      <button>Book Now</button>
+      <Link style={{ textDecoration: "none" }} to={`/booking/${_id}`}>
+        <button>Book Now</button>
+      </Link>
     </div>
   );
 }

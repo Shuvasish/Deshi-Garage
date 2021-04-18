@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StyledSection } from "../../style";
 import styled from "styled-components";
 import ReviewCard from "../ReviewCard";
+import Spinner from "../Spinner";
 
 function ReviewSection(props) {
   const [reviews, setReviews] = useState([]);
@@ -17,9 +18,13 @@ function ReviewSection(props) {
     <StyledReview>
       <h2>User's Reviews</h2>
       <div className="review-card-container">
-        {reviews?.map((review) => (
-          <ReviewCard key={review._id} review={review} />
-        ))}
+        {reviews.length > 0 ? (
+          reviews?.map((review) => (
+            <ReviewCard key={review._id} review={review} />
+          ))
+        ) : (
+          <Spinner></Spinner>
+        )}
       </div>
     </StyledReview>
   );

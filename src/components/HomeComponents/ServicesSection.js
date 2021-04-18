@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StyledSection } from "../../style";
 import styled from "styled-components";
 import ServiceCard from "./ServiceCard";
+import Spinner from "../Spinner";
 
 function ServicesSection(props) {
   const [services, setServices] = useState([]);
@@ -16,10 +17,15 @@ function ServicesSection(props) {
   return (
     <StyledServices>
       <h2>Our Services</h2>
+
       <div className="service-card-container">
-        {services?.map((service) => (
-          <ServiceCard key={service._id} service={service}></ServiceCard>
-        ))}
+        {services.length > 0 ? (
+          services?.map((service) => (
+            <ServiceCard key={service._id} service={service}></ServiceCard>
+          ))
+        ) : (
+          <Spinner></Spinner>
+        )}
       </div>
     </StyledServices>
   );
