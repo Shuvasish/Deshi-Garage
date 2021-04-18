@@ -4,6 +4,9 @@ import styled from "styled-components";
 import { StyledSection, StyledButton } from "./../style";
 import { UserContext } from "./../App.js";
 import ProcessPayment from "../components/HomeComponents/ProcessPayment";
+import { motion } from "framer-motion";
+
+import { pageAnimation, slider, fade, sliderContainer } from "../animation";
 
 function Booking(props) {
   const { user } = useContext(UserContext);
@@ -58,32 +61,40 @@ function Booking(props) {
   };
 
   return (
-    <StyledBooking style={{ background: "white" }}>
-      <h2>Booking Details</h2>
-      <hr></hr>
-      <h3>Title : {up.Title}</h3>
-      <h4>Price : {up.Price} Taka</h4>
-      {isPayed ? (
-        <h3 className="text-success">Payment Completed</h3>
-      ) : (
-        <h3>Payment</h3>
-      )}
-      {isPayed ? (
-        ""
-      ) : (
-        <ProcessPayment
-          setData={setData}
-          data={data}
-          setIsPayed={setIsPayed}
-        ></ProcessPayment>
-      )}
-      {isPayed ? (
-        <BookStyledButton onClick={handleClick}>
-          Confirm Booking
-        </BookStyledButton>
-      ) : (
-        ""
-      )}
+    <StyledBooking
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      style={{ background: "#fff" }}
+    >
+      <motion.div variants={fade}>
+        <h2>Booking Details</h2>
+        <hr></hr>
+        <h3>Title : {up.Title}</h3>
+        <h4>Price : {up.Price} Taka</h4>
+        {isPayed ? (
+          <h3 className="text-success">Payment Completed</h3>
+        ) : (
+          <h3>Payment</h3>
+        )}
+        {isPayed ? (
+          ""
+        ) : (
+          <ProcessPayment
+            setData={setData}
+            data={data}
+            setIsPayed={setIsPayed}
+          ></ProcessPayment>
+        )}
+        {isPayed ? (
+          <BookStyledButton onClick={handleClick}>
+            Confirm Booking
+          </BookStyledButton>
+        ) : (
+          ""
+        )}
+      </motion.div>
     </StyledBooking>
   );
 }
