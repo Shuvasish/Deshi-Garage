@@ -129,6 +129,9 @@ const StyledDashboard = styled(StyledSection)`
   h1 {
     color: var(--text-primary);
   }
+  @media (max-width: 500px) {
+    padding-top: 0rem;
+  }
 `;
 
 const StyledPageContainer = styled(motion.div)``;

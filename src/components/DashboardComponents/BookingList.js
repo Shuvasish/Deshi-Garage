@@ -7,9 +7,13 @@ const BookingList = ({ bookingList }) => {
 
   return (
     <StyledBookingList>
-      {bookingList.map((booking) => (
-        <BookingCard booking={booking}></BookingCard>
-      ))}
+      {bookingList.length > 0 ? (
+        bookingList.map((booking) => (
+          <BookingCard booking={booking}></BookingCard>
+        ))
+      ) : (
+        <h2 style={{ color: "#1b1b1b" }}>No booking found.</h2>
+      )}
     </StyledBookingList>
   );
 };

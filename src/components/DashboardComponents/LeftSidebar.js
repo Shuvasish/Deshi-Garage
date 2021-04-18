@@ -57,6 +57,9 @@ const StyledLeftSidebar = styled.div`
       color: var(--primary);
     }
   }
+  @media (max-width: 500px) {
+    width: 100vw;
+  }
 `;
 
 export default LeftSidebar;
