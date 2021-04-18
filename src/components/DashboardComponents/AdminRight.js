@@ -1,6 +1,7 @@
 import React from "react";
 import AddAdmin from "./AddAdmin";
 import AddService from "./AddService";
+import AdminBookingList from "./AdminBookingList";
 import ManageServices from "./ManageServices";
 import OrderList from "./OrderList";
 
@@ -19,18 +20,19 @@ function AdminRight({
   //   console.log(adminClick);
   const { order, service, addAdmin, manage } = adminClick;
   //   console.log(order, service, addAdmin, manage);
+  console.log(bookingList);
+  console.log(setBookingList);
   return (
     <div>
+      {/* ADD SERVICES */}
       {order ? (
-        <OrderList
+        <AdminBookingList
           bookingList={bookingList}
           setBookingList={setBookingList}
-        ></OrderList>
+        ></AdminBookingList>
       ) : (
         ""
       )}
-
-      {/* ADD SERVICES */}
       {service ? <AddService></AddService> : ""}
 
       {/* ADD ADMIN */}

@@ -15,7 +15,8 @@ function OrderList({ bookingList, setBookingList }) {
             <th scope="col">Status</th>
             <th scope="col">Update Status</th>
           </tr>
-
+        </thead>
+        <tbody>
           {bookingList.length > 0 ? (
             bookingList.map((booking, serial) => (
               <OrderCard
@@ -26,12 +27,9 @@ function OrderList({ bookingList, setBookingList }) {
               ></OrderCard>
             ))
           ) : (
-            <div className="tarCon">
-              <div className="spiTar"></div>
-            </div>
+            <></>
           )}
-        </thead>
-        <tbody></tbody>
+        </tbody>
       </table>
     </StyledOrderList>
   );
