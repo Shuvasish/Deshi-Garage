@@ -58,6 +58,24 @@ function Login(props) {
         setLoginInfo({ failureMessage: errorMessage });
       });
   };
+  const loginAsAdmin = () => {
+    setUser({
+      displayName: "Super Admin",
+      photoURL:
+        "https://cdn.pixabay.com/photo/2018/12/23/09/54/mario-3890808__340.jpg",
+      email: "admin@deshi.com",
+    });
+    history.replace(from);
+  };
+  const loginAsUser = () => {
+    setUser({
+      displayName: "Super User",
+      photoURL:
+        "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png",
+      email: "user@deshi.com",
+    });
+    history.replace(from);
+  };
 
   return (
     <StyledLogin
@@ -77,6 +95,15 @@ function Login(props) {
         Sign In With Google
       </motion.button>
       <p className="fail">{loginInfo.failureMessage}</p>
+      <motion.h2 variants={fade} className="text-secondary">
+        OR
+      </motion.h2>
+      <motion.button className="guest" variants={fade} onClick={loginAsAdmin}>
+        ByPass as Admin
+      </motion.button>
+      <motion.button className="guest" variants={fade} onClick={loginAsUser}>
+        ByPass as User
+      </motion.button>
       <ScrollTop />
     </StyledLogin>
   );
@@ -92,6 +119,7 @@ const StyledLogin = styled(motion.div)`
   button {
     padding: 1.5rem 3rem;
     font-size: 2rem;
+    width: 25rem;
     display: block;
     border: none;
     background: var(--secondary);
@@ -102,6 +130,12 @@ const StyledLogin = styled(motion.div)`
     &:hover {
       background: var(--primary);
     }
+  }
+  .guest {
+    background: white;
+    color: var(--secondary);
+    width: 25rem;
+    margin-top: 1rem;
   }
   .fail {
     color: #ff3333;
