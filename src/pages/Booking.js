@@ -24,7 +24,7 @@ function Booking(props) {
   const [isPayed, setIsPayed] = useState(false);
   const [up, setUp] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:4000/service/${id}`)
+    fetch(`https://peaceful-stream-74378.herokuapp.com/service/${id}`)
       .then((res) => res.json())
       .then((tempData) => {
         // const temp = { ...data };

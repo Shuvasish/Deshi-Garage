@@ -15,7 +15,7 @@ function BookingCard({ booking }) {
         </div>
         <div className="status">
           <h4 className={status}>{status}</h4>
-          <p>{format(new Date("2021-04-15T08:18:15.990Z"), "yyyy-MM-dd")}</p>
+          <p>{format(new Date(time), "dd-MM-yyyy")}</p>
         </div>
       </div>
       <div className="booking-description">
