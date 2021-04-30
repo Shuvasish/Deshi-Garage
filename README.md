@@ -25,7 +25,7 @@
 - styled components
 
 - axios
-- 
+
 - imgbb
 
 ## Home
