@@ -4,29 +4,29 @@
 
 ## Features
 
-### User can order our services
+- User can order our services
 
-### User can payment via stripe
+- User can payment via stripe
 
-### User can give feedback
+- User can give feedback
 
-### User can watch current condition of their order
+- User can watch current condition of their order
 
-### Admin can add, delete, update services
+- Admin can add, delete, update services
 
 ## Here i used
 
-### react
+- react
 
-### react-router-dom
+- react-router-dom
 
-### framer motion
+- framer motion
 
-### styled components
+- styled components
 
-### axios
-
-### imgbb
+- axios
+- 
+- imgbb
 
 ## Home
 
