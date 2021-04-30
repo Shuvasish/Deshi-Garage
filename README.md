@@ -2,17 +2,31 @@
 
 [Live link](https://deshi-garage.web.app/)
 
-## here i used
+## Features
 
-# react-router-dom
+### User can order our services
 
-# framer motion
+### User can payment via stripe
 
-# styled components
+### User can give feedback
 
-# axios
+### User can watch current condition of their order
 
-# imgbb
+### Admin can add, delete, update services
+
+## Here i used
+
+### react
+
+### react-router-dom
+
+### framer motion
+
+### styled components
+
+### axios
+
+### imgbb
 
 ## Home
 
